@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Satisfaction Survey</title>
+    <style>
+        :root {
+            --primary-color: #df691a;
+            --primary-hover: #c45712;
+            --bg-color: #f7f7f7;
+            --card-bg: #ffffff;
+            --text-color: #2c3e50;
+            --border-color: #ccc;
+            --header-bg: #df691a;
+        }
+
+        body {
+            font-family: "Lucida Grande", Tahoma, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 30px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .survey-container {
+            width: 100%;
+            max-width: 650px;
+            background-color: var(--card-bg);
+            border: 1px solid #e1e1e1;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .survey-header {
+            background-color: var(--header-bg);
+            color: white;
+            padding: 25px 30px;
+        }
+
+        .survey-header h1 {
+            margin: 0 0 10px 0;
+            font-size: 1.8rem;
+        }
+
+        .survey-header p {
+            margin: 0;
+            font-size: 0.95rem;
+            opacity: 0.95;
+            line-height: 1.4;
+        }
+
+        form {
+            padding: 30px;
+        }
+
+        .form-section {
+            margin-bottom: 25px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        .form-section:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        label.section-title {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .required {
+            color: #d9534f;
+            margin-left: 3px;
+        }
+
+        /* Table styling for matrix questions (Radio rating scale) */
+        .rating-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .rating-table th, .rating-table td {
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .rating-table th:first-child,
+        .rating-table td:first-child {
+            text-align: left;
+            width: 40%;
+            font-weight: normal;
+        }
+
+        .rating-table tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+
+        .rating-table input[type="radio"] {
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Inputs, Select, Textarea */
+        input[type="text"],
+        input[type="email"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 0.95rem;
+            box-sizing: border-box;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 5px rgba(223, 105, 26, 0.2);
+        }
+
+        .field-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .field-group {
+            flex: 1;
+            margin-bottom: 15px;
+        }
+
+        .field-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Buttons */
+        .form-actions {
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        button[type="submit"] {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: var(--primary-hover);
+        }
+
+        @media (max-width: 600px) {
+            .field-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            .rating-table th, .rating-table td {
+                font-size: 0.8rem;
+                padding: 6px;
+            }
+        }
+    </style>
+
+</head>
+<body>
+<div class="survey-container">
+    <!-- Phần tiêu đề Form -->
+    <div class="survey-header">
+        <h1>Customer Satisfaction Survey</h1>
+        <p>Thank you for taking our survey. Your feedback is very important to us and helps us continually improve our products and services.</p>
+    </div>
+
+    <!-- Phần nội dung Form -->
+    <form action="#" method="POST">
+
+        <!-- Câu hỏi 1: Đánh giá mức độ hài lòng (Matrix Radio) -->
+        <div class="form-section">
+            <label class="section-title">1. Please rate your level of satisfaction with our services:<span class="required">*</span></label>
+
+            <table class="rating-table">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>Very Satisfied</th>
+                    <th>Satisfied</th>
+                    <th>Neutral</th>
+                    <th>Unsatisfied</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Overall Quality</td>
+                    <td><input type="radio" name="overallQuality" value="very_satisfied" required></td>
+                    <td><input type="radio" name="overallQuality" value="satisfied"></td>
+                    <td><input type="radio" name="overallQuality" value="neutral"></td>
+                    <td><input type="radio" name="overallQuality" value="unsatisfied"></td>
+                </tr>
+                <tr>
+                    <td>Customer Support</td>
+                    <td><input type="radio" name="customerSupport" value="very_satisfied" required></td>
+                    <td><input type="radio" name="customerSupport" value="satisfied"></td>
+                    <td><input type="radio" name="customerSupport" value="neutral"></td>
+                    <td><input type="radio" name="customerSupport" value="unsatisfied"></td>
+                </tr>
+                <tr>
+                    <td>Pricing & Value</td>
+                    <td><input type="radio" name="pricingValue" value="very_satisfied" required></td>
+                    <td><input type="radio" name="pricingValue" value="satisfied"></td>
+                    <td><input type="radio" name="pricingValue" value="neutral"></td>
+                    <td><input type="radio" name="pricingValue" value="unsatisfied"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Câu hỏi 2: Khả năng giới thiệu (Dropdown / Select) -->
+        <div class="form-section">
+            <div class="field-group">
+                <label for="recommendLikelihood">2. How likely are you to recommend us to a friend or colleague?<span class="required">*</span></label>
+                <select id="recommendLikelihood" name="recommendLikelihood" required>
+                    <option value="" disabled selected>- Select an option -</option>
+                    <option value="definitely">Definitely</option>
+                    <option value="probably">Probably</option>
+                    <option value="not_sure">Not Sure</option>
+                    <option value="probably_not">Probably Not</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Câu hỏi 3: Ý kiến đóng góp (Textarea) -->
+        <div class="form-section">
+            <div class="field-group">
+                <label for="comments">3. What did you like least about our service, or how can we improve?</label>
+                <textarea id="comments" name="comments" rows="4" placeholder="Type your feedback here..."></textarea>
+            </div>
+        </div>
+
+        <!-- Câu hỏi 4: Thông tin liên hệ khách hàng -->
+        <div class="form-section">
+            <label class="section-title">4. Contact Information (Optional)</label>
+
+            <div class="field-row">
+                <div class="field-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="John Doe">
+                </div>
+                <div class="field-group">
+                    <label for="emailAddress">Email Address</label>
+                    <input type="email" id="emailAddress" name="emailAddress" placeholder="example@domain.com">
+                </div>
+            </div>
+        </div>
+
+        <!-- Nút gửi Form -->
+        <div class="form-actions">
+            <button type="submit">Submit Survey</button>
+        </div>
+
+    </form>
+</div>
+</body>
+</html>
